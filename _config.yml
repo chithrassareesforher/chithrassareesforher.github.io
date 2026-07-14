@@ -1,0 +1,15 @@
+title: "Chithra's Sarees For Her"
+description: "Exquisite traditional sarees curated for grace and elegance."
+url: "https://yourusername.github.io" # Replace with your GitHub URL
+baseurl: ""
+
+# Color Palette Variables (Passed to CSS)
+theme_colors:
+  primary: "#E8B4B8"
+  secondary: "#C3AED6"
+  background: "#D6E5E3"
+  text: "#1A1A1A"
+
+permalink: /products/:title/
+plugins:
+  - jekyll-feed
