@@ -1,0 +1,6 @@
+---
+layout: null
+---
+id,title,description,availability,condition,price,link,image_link,brand,color
+{% for item in site.data.products %}"{{ item.id }}","{{ item.title }}","{{ item.description }}","{{ item.availability }}","{{ item.condition }}","{{ item.price }}","{{ site.url }}{{ item.link }}","{{ item.image_link }}","{{ item.brand }}","{{ item.color }}"
+{% endfor %}
