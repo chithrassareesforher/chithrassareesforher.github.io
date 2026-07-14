@@ -1,0 +1,18 @@
+backend:
+  name: github
+  repo: chithrassareesforher/chithrassareesforher.github.io
+  branch: main
+media_folder: "assets/images"
+public_folder: "/assets/images"
+collections:
+  - name: "products"
+    label: "Sarees"
+    folder: "_data"
+    extension: "yml"
+    create: true
+    fields:
+      - {label: "ID", name: "id", widget: "string"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Price", name: "price", widget: "string"}
+      - {label: "Description", name: "description", widget: "text"}
+      - {label: "Image", name: "image_link", widget: "image"}
