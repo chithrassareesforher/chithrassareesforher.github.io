@@ -8,50 +8,264 @@ layout: default
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ site.title }}</title>
+    <!-- Premium Font Imports -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+    
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: {{ site.theme_colors.background }}; color: {{ site.theme_colors.text }}; margin: 0; padding: 0; }
-        header { background: linear-gradient(135deg, {{ site.theme_colors.primary }}, {{ site.theme_colors.secondary }}); padding: 40px 20px; text-align: center; color: #fff; }
-        header h1 { margin: 0; font-size: 2.5em; letter-spacing: 1px; font-family: 'Georgia', serif; text-shadow: 1px 1px 3px rgba(0,0,0,0.2); }
-        .container { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 30px; }
-        .card { background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); transition: transform 0.2s; display: flex; flex-direction: column; }
-        .card:hover { transform: translateY(-5px); }
-        .card img { width: 100%; height: 350px; object-fit: cover; }
-        .card-content { padding: 20px; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; }
-        .card h3 { margin: 0 0 10px 0; font-size: 1.3em; color: {{ site.theme_colors.text }}; }
-        .price { font-size: 1.2em; font-weight: bold; color: #b57c82; margin-bottom: 15px; }
-        .btn-whatsapp { display: block; text-align: center; background-color: #25D366; color: white; padding: 10px; border-radius: 5px; text-decoration: none; font-weight: bold; transition: background 0.2s; }
-        .btn-whatsapp:hover { background-color: #128C7E; }
+        :root {
+            --primary: {{ site.theme_colors.primary }};
+            --secondary: {{ site.theme_colors.secondary }};
+            --background: {{ site.theme_colors.background }};
+            --text: {{ site.theme_colors.text }};
+        }
+
+        body { 
+            font-family: 'Jost', sans-serif; 
+            background-color: var(--background); 
+            color: var(--text); 
+            margin: 0; 
+            padding: 0; 
+            letter-spacing: 0.5px;
+        }
+
+        /* Hero Header Section */
+        header { 
+            background: linear-gradient(135deg, rgba(232,180,184,0.85), rgba(195,174,214,0.85)), url('/assets/images/hero-bg.jpg') center/cover;
+            padding: 60px 20px; 
+            text-align: center; 
+            border-bottom: 3px solid #fff;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+
+        .brand-logo {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #fff;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            margin-bottom: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .brand-logo:hover {
+            transform: scale(1.05);
+        }
+
+        header h1 { 
+            margin: 10px 0 5px 0; 
+            font-size: 2.8em; 
+            font-family: 'Cinzel', serif;
+            font-weight: 600;
+            color: #1a1a1a;
+            letter-spacing: 2px;
+        }
+
+        header p {
+            font-size: 1.1em;
+            font-weight: 300;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin: 0;
+            color: #333;
+        }
+
+        /* Main Grid Structure */
+        .container { 
+            max-width: 1200px; 
+            margin: 50px auto; 
+            padding: 0 20px; 
+        }
+
+        .section-title {
+            font-family: 'Cinzel', serif;
+            text-align: center;
+            font-size: 2em;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 2px;
+            background: var(--primary);
+            margin: 10px auto 0;
+        }
+
+        .grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
+            gap: 40px; 
+        }
+
+        /* Luxury Saree Card Design */
+        .card { 
+            background: #ffffff; 
+            border-radius: 12px; 
+            overflow: hidden; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03); 
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); 
+            display: flex; 
+            flex-direction: column;
+            border: 1px solid rgba(255,255,255,0.8);
+        }
+
+        .card:hover { 
+            transform: translateY(-8px); 
+            box-shadow: 0 15px 35px rgba(195,174,214,0.25);
+        }
+
+        .image-container {
+            position: relative;
+            overflow: hidden;
+            height: 400px;
+        }
+
+        .card img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+            transition: transform 0.5s ease;
+        }
+
+        .card:hover img {
+            transform: scale(1.06);
+        }
+
+        .tag {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 5px 12px;
+            font-size: 0.8em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+
+        .card-content { 
+            padding: 25px; 
+            flex-grow: 1; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: space-between; 
+        }
+
+        .card h3 { 
+            margin: 0 0 8px 0; 
+            font-size: 1.35em; 
+            font-family: 'Cinzel', serif;
+            color: var(--text); 
+            line-height: 1.3;
+        }
+
+        .color-badge {
+            font-size: 0.85em;
+            color: #777;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .card-description { 
+            font-size: 0.95em; 
+            color: #555; 
+            line-height: 1.6;
+            margin: 0 0 20px 0;
+            font-weight: 300;
+        }
+
+        .price-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+            padding-top: 15px;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        .price { 
+            font-size: 1.4em; 
+            font-weight: 500; 
+            color: #1a1a1a; 
+        }
+
+        /* WhatsApp Boutiqe Button */
+        .btn-whatsapp { 
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #25D366; 
+            color: white; 
+            padding: 10px 20px; 
+            border-radius: 6px; 
+            text-decoration: none; 
+            font-weight: 500; 
+            font-size: 0.95em;
+            transition: all 0.2s; 
+            box-shadow: 0 4px 10px rgba(37, 211, 102, 0.2);
+        }
+
+        .btn-whatsapp:hover { 
+            background-color: #128C7E; 
+            transform: translateY(-1px);
+            box-shadow: 0 6px 14px rgba(18, 140, 126, 0.3);
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            font-size: 0.9em;
+            color: #666;
+            border-top: 1px solid rgba(0,0,0,0.05);
+        }
     </style>
 </head>
 <body>
 
     <header>
-        <img src="/assets/images/logo.jpg" alt="Chithra's Sarees For Her Logo" style="max-width: 150px; border-radius: 50%;">
+        <!-- The logo is centered and rounded inside your palette theme -->
+        <img src="/assets/images/logo.jpg" alt="Chithra's Sarees For Her" class="brand-logo">
         <h1>Chithra's Sarees For Her</h1>
-        <p>Elegance woven into every thread</p>
+        <p>Elegance Woven Into Every Thread</p>
     </header>
 
     <div class="container">
+        <h2 class="section-title">Our Collection</h2>
         <div class="grid">
             {% for item in site.data.products %}
             <div class="card">
-                <img src="{{ item.image_link }}" alt="{{ item.title }}">
+                <div class="image-container">
+                    <span class="tag">{{ item.condition }}</span>
+                    <img src="{{ item.image_link }}" alt="{{ item.title }}">
+                </div>
                 <div class="card-content">
                     <div>
                         <h3>{{ item.title }}</h3>
-                        <p style="font-size: 0.9em; color: #666;">{{ item.description }}</p>
+                        <span class="color-badge">✨ Shade: {{ item.color }}</span>
+                        <p class="card-description">{{ item.description }}</p>
                     </div>
-                    <div>
+                    <div class="price-row">
                         <div class="price">₹{{ item.price | split: ' ' | first }}</div>
-                        <!-- Direct WhatsApp Order Trigger -->
-                        <a href="https://wa.me/919677999322?text=Hi,%20I%20am%20interested%20in%20buying%20{{ item.title | url_encode }}%20(ID:%20{{ item.id }})." class="btn-whatsapp" target="_blank">Order via WhatsApp</a>
+                        <a href="https://wa.me/919677999322?text=Hi%20Chithra's,%20I've%20fallen%20in%20love%20with%20this%20saree!%20Can%20you%20share%20details%20for%20{{ item.title | url_encode }}%20(ID:%20{{ item.id }})?" class="btn-whatsapp" target="_blank">
+                            Inquire via WA
+                        </a>
                     </div>
                 </div>
             </div>
             {% endfor %}
         </div>
     </div>
+
+    <footer>
+        <p>&copy; {{ 'now' | date: "%Y" }} Chithra's Sarees For Her. All Rights Reserved.</p>
+    </footer>
 
 </body>
 </html>
