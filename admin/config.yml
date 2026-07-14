@@ -31,4 +31,4 @@ collections:
               - { label: "Product Image", name: "image_link", widget: "image" }
               - { label: "Description", name: "description", widget: "text" }
               - { label: "WhatsApp Redirect Link", name: "link", widget: "hidden", default: "/" }
-              - { label: "Brand", name: "brand", widget: "hidden", default: "Chithra's" }
+              - { label: "Brand", name: "brand", widget: "hidden", default: "Chithra's Sarees for Her" }
