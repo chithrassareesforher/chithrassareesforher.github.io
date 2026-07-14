@@ -8,10 +8,11 @@ layout: default
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ site.title }}</title>
-    <!-- Premium Font Imports -->
+    <!-- Luxury Font Imports & Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
@@ -22,78 +23,92 @@ layout: default
         }
 
         body { 
-            font-family: 'Jost', sans-serif; 
-            background-color: var(--background); 
+            font-family: 'Montserrat', sans-serif; 
+            background-color: #FAFAFA; 
             color: var(--text); 
             margin: 0; 
             padding: 0; 
-            letter-spacing: 0.5px;
         }
 
-        /* Hero Header Section */
-        header { 
-            background: linear-gradient(135deg, rgba(232,180,184,0.85), rgba(195,174,214,0.85)), url('/assets/images/hero-bg.jpg') center/cover;
-            padding: 60px 20px; 
-            text-align: center; 
-            border-bottom: 3px solid #fff;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        /* Modern Navigation Bar */
+        .navbar {
+            background-color: #FFFFFF;
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
-        .brand-logo {
-            width: 130px;
-            height: 130px;
+        .nav-logo-area {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: var(--text);
+        }
+
+        .nav-logo-img {
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid #fff;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-            margin-bottom: 15px;
-            transition: transform 0.3s ease;
+            margin-right: 12px;
+            border: 2px solid var(--primary);
         }
 
-        .brand-logo:hover {
-            transform: scale(1.05);
-        }
-
-        header h1 { 
-            margin: 10px 0 5px 0; 
-            font-size: 2.8em; 
+        .nav-brand-name {
             font-family: 'Cinzel', serif;
             font-weight: 600;
-            color: #1a1a1a;
-            letter-spacing: 2px;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
         }
 
-        header p {
-            font-size: 1.1em;
-            font-weight: 300;
-            text-transform: uppercase;
+        .social-links a {
+            color: var(--text);
+            margin-left: 20px;
+            font-size: 1.3rem;
+            transition: color 0.2s;
+        }
+
+        .social-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Premium Visual Hero */
+        .hero-banner {
+            background: linear-gradient(135deg, rgba(232,180,184,0.4), rgba(195,174,214,0.4)), url('https://images.unsplash.com/photo-1610030469983-98e550d6193c?q=80&w=1600') center/cover;
+            height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #1A1A1A;
+            padding: 0 20px;
+        }
+
+        .hero-banner h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 2.5rem;
+            margin: 0 0 10px 0;
             letter-spacing: 3px;
-            margin: 0;
-            color: #333;
         }
 
-        /* Main Grid Structure */
+        .hero-banner p {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin: 0;
+            font-weight: 300;
+        }
+
+        /* Catalog Layout */
         .container { 
             max-width: 1200px; 
-            margin: 50px auto; 
+            margin: 60px auto; 
             padding: 0 20px; 
-        }
-
-        .section-title {
-            font-family: 'Cinzel', serif;
-            text-align: center;
-            font-size: 2em;
-            margin-bottom: 40px;
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 2px;
-            background: var(--primary);
-            margin: 10px auto 0;
         }
 
         .grid { 
@@ -102,55 +117,47 @@ layout: default
             gap: 40px; 
         }
 
-        /* Luxury Saree Card Design */
         .card { 
             background: #ffffff; 
-            border-radius: 12px; 
+            border-radius: 0px; /* Clean minimalist edge */
             overflow: hidden; 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.03); 
-            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); 
+            box-shadow: 0 5px 20px rgba(0,0,0,0.03); 
+            transition: all 0.3s ease; 
             display: flex; 
             flex-direction: column;
-            border: 1px solid rgba(255,255,255,0.8);
+            border: 1px solid #EEEEEE;
         }
 
         .card:hover { 
-            transform: translateY(-8px); 
-            box-shadow: 0 15px 35px rgba(195,174,214,0.25);
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.07);
         }
 
         .image-container {
             position: relative;
-            overflow: hidden;
-            height: 400px;
+            height: 420px;
         }
 
         .card img { 
             width: 100%; 
             height: 100%; 
             object-fit: cover; 
-            transition: transform 0.5s ease;
         }
 
-        .card:hover img {
-            transform: scale(1.06);
-        }
-
-        .tag {
+        .tag-badge {
             position: absolute;
-            top: 15px;
+            bottom: 15px;
             left: 15px;
-            background: rgba(255, 255, 255, 0.9);
-            padding: 5px 12px;
-            font-size: 0.8em;
+            background: #FFF;
+            padding: 6px 14px;
+            font-size: 0.75rem;
             text-transform: uppercase;
             letter-spacing: 1px;
-            border-radius: 20px;
-            font-weight: 500;
+            font-weight: 600;
         }
 
         .card-content { 
-            padding: 25px; 
+            padding: 20px; 
             flex-grow: 1; 
             display: flex; 
             flex-direction: column; 
@@ -158,103 +165,116 @@ layout: default
         }
 
         .card h3 { 
-            margin: 0 0 8px 0; 
-            font-size: 1.35em; 
+            margin: 0 0 6px 0; 
+            font-size: 1.2rem; 
             font-family: 'Cinzel', serif;
-            color: var(--text); 
-            line-height: 1.3;
+            color: #1A1A1A;
         }
 
-        .color-badge {
-            font-size: 0.85em;
-            color: #777;
-            margin-bottom: 12px;
+        .saree-color {
+            font-size: 0.8rem;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 1px;
             display: block;
+            margin-bottom: 12px;
         }
 
         .card-description { 
-            font-size: 0.95em; 
+            font-size: 0.9rem; 
             color: #555; 
             line-height: 1.6;
-            margin: 0 0 20px 0;
+            margin-bottom: 20px;
             font-weight: 300;
         }
 
-        .price-row {
+        .action-row {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-top: auto;
+            border-top: 1px solid #F0F0F0;
             padding-top: 15px;
-            border-top: 1px solid #f0f0f0;
         }
 
         .price { 
-            font-size: 1.4em; 
-            font-weight: 500; 
+            font-size: 1.3rem; 
+            font-weight: 600; 
             color: #1a1a1a; 
         }
 
-        /* WhatsApp Boutiqe Button */
         .btn-whatsapp { 
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background-color: #25D366; 
-            color: white; 
-            padding: 10px 20px; 
-            border-radius: 6px; 
+            background-color: #1A1A1A; 
+            color: #FFFFFF; 
+            padding: 10px 18px; 
             text-decoration: none; 
             font-weight: 500; 
-            font-size: 0.95em;
-            transition: all 0.2s; 
-            box-shadow: 0 4px 10px rgba(37, 211, 102, 0.2);
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: all 0.2s;
         }
 
         .btn-whatsapp:hover { 
-            background-color: #128C7E; 
-            transform: translateY(-1px);
-            box-shadow: 0 6px 14px rgba(18, 140, 126, 0.3);
+            background-color: var(--primary);
+            color: #1A1A1A;
         }
 
+        /* E-commerce Clean Footer */
         footer {
+            background-color: #FFFFFF;
             text-align: center;
             padding: 40px 20px;
-            margin-top: 60px;
-            font-size: 0.9em;
-            color: #666;
-            border-top: 1px solid rgba(0,0,0,0.05);
+            margin-top: 100px;
+            border-top: 1px solid #EEEEEE;
+        }
+
+        footer p {
+            margin: 5px 0;
+            font-size: 0.85rem;
+            color: #777;
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <!-- The logo is centered and rounded inside your palette theme -->
-        <img src="/assets/images/logo.jpg" alt="Chithra's Sarees For Her" class="brand-logo">
-        <h1>Chithra's Sarees For Her</h1>
-        <p>Elegance Woven Into Every Thread</p>
-    </header>
+    <!-- Top Clean Brand Navigation -->
+    <nav class="navbar">
+        <a href="/" class="nav-logo-area">
+            <img src="/assets/images/logo.jpg" alt="Chithra's Logo" class="nav-logo-img">
+            <span class="nav-brand-name">Chithra's</span>
+        </a>
+        <div class="social-links">
+            <a href="mailto:yourbrand@email.com" title="Email Us"><i class="fa-regular fa-envelope"></i></a>
+            <a href="https://instagram.com/yourprofile" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://wa.me/91XXXXXXXXXX" target="_blank" title="WhatsApp Business"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+    </nav>
 
+    <!-- Editorial Header Section -->
+    <div class="hero-banner">
+        <h2>Sarees For Her</h2>
+        <p>Elegance woven into traditional threads</p>
+    </div>
+
+    <!-- Collection Showcase -->
     <div class="container">
-        <h2 class="section-title">Our Collection</h2>
         <div class="grid">
             {% for item in site.data.products %}
             <div class="card">
                 <div class="image-container">
-                    <span class="tag">{{ item.condition }}</span>
                     <img src="{{ item.image_link }}" alt="{{ item.title }}">
+                    <span class="tag-badge">{{ item.condition }}</span>
                 </div>
                 <div class="card-content">
                     <div>
                         <h3>{{ item.title }}</h3>
-                        <span class="color-badge">✨ Shade: {{ item.color }}</span>
+                        <span class="saree-color">Palette: {{ item.color }}</span>
                         <p class="card-description">{{ item.description }}</p>
                     </div>
-                    <div class="price-row">
+                    <div class="action-row">
                         <div class="price">₹{{ item.price | split: ' ' | first }}</div>
-                        <a href="https://wa.me/919677999322?text=Hi%20Chithra's,%20I've%20fallen%20in%20love%20with%20this%20saree!%20Can%20you%20share%20details%20for%20{{ item.title | url_encode }}%20(ID:%20{{ item.id }})?" class="btn-whatsapp" target="_blank">
-                            Inquire via WA
+                        <a href="https://wa.me/91XXXXXXXXXX?text=Hello%20Chithra's!%20I%20would%20love%20to%20order%20the%20{{ item.title | url_encode }}%20(ID:%20{{ item.id }})." class="btn-whatsapp" target="_blank">
+                            Chat To Buy
                         </a>
                     </div>
                 </div>
@@ -264,7 +284,8 @@ layout: default
     </div>
 
     <footer>
-        <p>&copy; {{ 'now' | date: "%Y" }} Chithra's Sarees For Her. All Rights Reserved.</p>
+        <p>&copy; {{ 'now' | date: "%Y" }} Chithra's Sarees For Her.</p>
+        <p>Traditional Luxury Luxury Boutique &bull; Powered by Conversational Commerce</p>
     </footer>
 
 </body>
